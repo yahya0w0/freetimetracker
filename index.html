@@ -10,7 +10,9 @@
       font-family: 'Segoe UI', sans-serif;
     }
 
-    body {
+    body 
+   
+   {
       margin: 0;
       padding: 0;
       height: 100vh;
@@ -79,8 +81,30 @@
       outline: 2px solid #007bff;
       outline-offset: 2px;
 }
+    .heading {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #ff7a00; /* Professional orange */
+  margin-bottom: 40px;
+  text-align: center;
+}
 
-    }
+
+    .add-routine-text {
+  margin-top: 16px;
+  font-size: 1rem;
+  color: #333;
+  text-align: center;
+
+  background: #f4f6f9;
+  padding: 6px 12px;
+  display: inline-block;
+
+  box-shadow: inset 1px 1px 3px rgba(0,0,0,0.1),
+              inset -1px -1px 3px rgba(255,255,255,0.6);
+  border-radius: 8px;
+}
+
 
     .popup-buttons button {
       padding-left: 13px;
@@ -101,7 +125,7 @@
       outline-offset: 2px;
 }
 
-    }
+    
 
     .popup-buttons button:hover {
       background: #0056b3;
@@ -120,12 +144,16 @@
   </style>
 </head>
 <body>
+   <h1 class="heading">Routiner.io</h1>
 
   <script>routinr.js</script>
 
   <!-- Centered Add Button -->
-  <button id="addRoutineBtn">+</button>
+  
 
+  <button id="addRoutineBtn">+</button>
+  <pr>
+<p class="add-routine-text">Add routine</p>
   <!-- Popup -->
   <div id="popupOverlay" class="popup-overlay">
     <div class="popup">
