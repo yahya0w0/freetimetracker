@@ -2,49 +2,69 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Routine Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Routiner.io</title>
   <style>
     * {
       box-sizing: border-box;
       font-family: 'Segoe UI', sans-serif;
     }
 
-    body 
-   
-   {
+    body {
       margin: 0;
       padding: 0;
       height: 100vh;
       background: #f4f6f9;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
     }
 
+    /* Orange Heading */
+    .heading {
+      font-size: 3rem;
+      font-weight: 900;
+      color: #ff7a00; /* professional orange */
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    /* Centered Add Button */
     #addRoutineBtn {
       background-color: #007bff;
       border: none;
       border-radius: 50%;
-      width: 145px;
-      height: 145px;
+      width: 70px;
+      height: 70px;
       font-size: 32px;
       color: white;
       cursor: pointer;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       transition: background 0.2s ease;
-      button:focus;
-      outline: none;
-      button:focus-visible;
-      outline: 2px solid #007bff;
-      outline-offset: 2px;
-
     }
 
     #addRoutineBtn:hover {
       background-color: #0056b3;
     }
 
+    /* Dug-in Add Routine Text */
+    .add-routine-text {
+      margin-top: 16px;
+      font-size: 1rem;
+      color: #333;
+      text-align: center;
+
+      background: #f4f6f9;
+      padding: 6px 12px;
+      display: inline-block;
+
+      box-shadow: inset 1px 1px 3px rgba(0,0,0,0.1),
+                  inset -1px -1px 3px rgba(255,255,255,0.6);
+      border-radius: 8px;
+    }
+
+    /* Popup Overlay */
     .popup-overlay {
       position: fixed;
       top: 0; left: 0;
@@ -57,6 +77,7 @@
       display: none;
     }
 
+    /* Popup Box */
     .popup {
       background: white;
       width: 80vw;
@@ -75,42 +96,10 @@
       display: flex;
       justify-content: space-between;
       margin-top: auto;
-      button:focus; 
-      outline: none;
-      button:focus-visible;
-      outline: 2px solid #007bff;
-      outline-offset: 2px;
-}
-    .heading {
-  font-size: 3rem;
-  font-weight: 900;
-  color: #ff7a00; /* Professional orange */
-  margin-bottom: 40px;
-  text-align: center;
-}
-
-
-    .add-routine-text {
-  margin-top: 16px;
-  font-size: 1rem;
-  color: #333;
-  text-align: center;
-
-  background: #f4f6f9;
-  padding: 6px 12px;
-  display: inline-block;
-
-  box-shadow: inset 1px 1px 3px rgba(0,0,0,0.1),
-              inset -1px -1px 3px rgba(255,255,255,0.6);
-  border-radius: 8px;
-}
-
+    }
 
     .popup-buttons button {
-      padding-left: 13px;
-      padding-right: 13px;
-      padding-top: 4px;
-      padding-bottom: 4px;
+      padding: 8px 16px;
       border: none;
       background: #007bff;
       color: white;
@@ -118,17 +107,20 @@
       cursor: pointer;
       font-size: 14px;
       transition: background 0.2s;
-      button:focus;
-      outline: none;
-      button:focus-visible ;
-      outline: 2px solid #007bff;
-      outline-offset: 2px;
-}
-
-    
+    }
 
     .popup-buttons button:hover {
       background: #0056b3;
+    }
+
+    /* Focus ring removed (optional) */
+    button:focus {
+      outline: none;
+    }
+
+    button:focus-visible {
+      outline: 2px solid #007bff;
+      outline-offset: 2px;
     }
 
     @keyframes fadeIn {
@@ -144,31 +136,32 @@
   </style>
 </head>
 <body>
-   <h1 class="heading">Routiner.io</h1>
 
-  <script>routinr.js</script>
+  <!-- Heading -->
+  <h1 class="heading">Routiner.io</h1>
 
-  <!-- Centered Add Button -->
-  
+  <!-- Add Button and Embedded Text -->
+  <div style="text-align: center;">
+    <button id="addRoutineBtn">+</button>
+    <p class="add-routine-text">Add routine</p>
+  </div>
 
-  <button id="addRoutineBtn">+</button>
-  <pr>
-<p class="add-routine-text">Add routine</p>
   <!-- Popup -->
   <div id="popupOverlay" class="popup-overlay">
     <div class="popup">
       <div>
         <h3>Add Routine</h3>
-        <!-- You can add input fields here -->
+        <!-- You can add form inputs here -->
         <p>(Your form will go here)</p>
       </div>
       <div class="popup-buttons">
-        <button id="backBtn">Back</button>
-        <button id="nextBtn">Next</button>
+        <button id="backBtn">&lt; Back</button>
+        <button id="nextBtn">Next &gt;</button>
       </div>
     </div>
   </div>
 
+  <!-- JavaScript -->
   <script>
     const addBtn = document.getElementById('addRoutineBtn');
     const overlay = document.getElementById('popupOverlay');
