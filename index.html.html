@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Routine Tracker</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: #f4f6f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #addRoutineBtn {
+      background-color: #007bff;
+      border: none;
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      font-size: 32px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: background 0.2s ease;
+    }
+
+    #addRoutineBtn:hover {
+      background-color: #0056b3;
+    }
+
+    .popup-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      display: none;
+    }
+
+    .popup {
+      background: white;
+      width: 80vw;
+      max-width: 350px;
+      aspect-ratio: 7 / 8;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .popup-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: auto;
+    }
+
+    .popup-buttons button {
+      padding-left: 13px;
+      padding-right: 13px;
+      padding-top: 4px;
+      padding-bottom: 4px;
+      border: none;
+      background: #007bff;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+
+    .popup-buttons button:hover {
+      background: #0056b3;
+    }
+
+    @keyframes fadeIn {
+      from {
+        transform: scale(0.9);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <script>routinr.js</script>
+
+  <!-- Centered Add Button -->
+  <button id="addRoutineBtn">+</button>
+
+  <!-- Popup -->
+  <div id="popupOverlay" class="popup-overlay">
+    <div class="popup">
+      <div>
+        <h3>Add Routine</h3>
+        <!-- You can add input fields here -->
+        <p>(Your form will go here)</p>
+      </div>
+      <div class="popup-buttons">
+        <button id="backBtn">Back</button>
+        <button id="nextBtn">Next</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const addBtn = document.getElementById('addRoutineBtn');
+    const overlay = document.getElementById('popupOverlay');
+    const backBtn = document.getElementById('backBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    addBtn.addEventListener('click', () => {
+      overlay.style.display = 'flex';
+    });
+
+    backBtn.addEventListener('click', () => {
+      overlay.style.display = 'none';
+    });
+
+    nextBtn.addEventListener('click', () => {
+      alert('Next step to be added!');
+    });
+  </script>
+
+</body>
+</html>
