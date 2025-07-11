@@ -13,24 +13,31 @@
     body {
       margin: 0;
       padding: 0;
-      height: 100vh;
       background: #f4f6f9;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      min-height: 100vh;
     }
 
-    /* Orange Heading */
+    /* Heading at Top */
     .heading {
       font-size: 3rem;
       font-weight: 900;
-      color: #ff7a00; /* professional orange */
-      margin-bottom: 40px;
+      color: #ff7a00;
       text-align: center;
+      padding: 40px 20px 20px;
     }
 
-    /* Centered Add Button */
+    /* Main Content Area */
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Add Button */
     #addRoutineBtn {
       background-color: #007bff;
       border: none;
@@ -48,138 +55,14 @@
       background-color: #0056b3;
     }
 
-    /* Dug-in Add Routine Text */
+    /* Add Routine Label */
     .add-routine-text {
       margin-top: 16px;
       font-size: 1rem;
       color: #333;
       text-align: center;
-
       background: #f4f6f9;
       padding: 6px 12px;
       display: inline-block;
-
       box-shadow: inset 1px 1px 3px rgba(0,0,0,0.1),
-                  inset -1px -1px 3px rgba(255,255,255,0.6);
-      border-radius: 8px;
-    }
-
-    /* Popup Overlay */
-    .popup-overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.3);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      display: none;
-    }
-
-    /* Popup Box */
-    .popup {
-      background: white;
-      width: 80vw;
-      max-width: 350px;
-      aspect-ratio: 7 / 8;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      animation: fadeIn 0.3s ease-in-out;
-    }
-
-    .popup-buttons {
-      display: flex;
-      justify-content: space-between;
-      margin-top: auto;
-    }
-
-    .popup-buttons button {
-      padding: 8px 16px;
-      border: none;
-      background: #007bff;
-      color: white;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 14px;
-      transition: background 0.2s;
-    }
-
-    .popup-buttons button:hover {
-      background: #0056b3;
-    }
-
-    /* Focus ring removed (optional) */
-    button:focus {
-      outline: none;
-    }
-
-    button:focus-visible {
-      outline: 2px solid #007bff;
-      outline-offset: 2px;
-    }
-
-    @keyframes fadeIn {
-      from {
-        transform: scale(0.9);
-        opacity: 0;
-      }
-      to {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Heading -->
-  <h1 class="heading">Routiner.io</h1>
-
-  <!-- Add Button and Embedded Text -->
-  <div style="text-align: center;">
-    <button id="addRoutineBtn">+</button>
-    <p class="add-routine-text">Add routine</p>
-  </div>
-
-  <!-- Popup -->
-  <div id="popupOverlay" class="popup-overlay">
-    <div class="popup">
-      <div>
-        <h3>Add Routine</h3>
-        <!-- You can add form inputs here -->
-        <p>(Your form will go here)</p>
-      </div>
-      <div class="popup-buttons">
-        <button id="backBtn">&lt; Back</button>
-        <button id="nextBtn">Next &gt;</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- JavaScript -->
-  <script>
-    const addBtn = document.getElementById('addRoutineBtn');
-    const overlay = document.getElementById('popupOverlay');
-    const backBtn = document.getElementById('backBtn');
-    const nextBtn = document.getElementById('nextBtn');
-
-    addBtn.addEventListener('click', () => {
-      overlay.style.display = 'flex';
-    });
-
-    backBtn.addEventListener('click', () => {
-      overlay.style.display = 'none';
-    });
-
-    nextBtn.addEventListener('click', () => {
-      alert('Next step to be added!');
-    });
-  </script>
-
-</body>
-</html>
+                  inset -1px -1px 3px
