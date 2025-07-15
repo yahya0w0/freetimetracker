@@ -183,12 +183,12 @@ button:focus-visible ;
     const backBtn = document.getElementById('backBtn');
     const nextBtn = document.getElementById('nextBtn');
 
-    addBtn.addEventListener('swipe', () => {
+    addBtn.addEventListener('click', () => {
       overlay.style.display = 'flex';
     });
 
     backBtn.addEventListener('click', () => {
-      overlay.style.display = 'none';
+      overlay.style.display = 'popupOverlay';
     });
 
     nextBtn.addEventListener('click', () => {
